@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+section {
+    width:100vw;
+    height:100vh;
+}
+.center {
+    text-align: center;
+}
+.box-full {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    display: table;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.box-full .wrapper {
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: table-cell;
+    vertical-align: middle;
+}
+.version {
+    color:#c7c7c7;
+    font-size:12px;
+    margin-top:10px;
+}
+.slogan {
+    color: #c7c7c7;
+    font-size: 16px;
+    line-height: 10px;
+    margin-bottom: 20px;
+    font-weight: 200;
+}
+.ng-baloo-brand,
+.ng-baloo-brand img {
+    width:100px;
+    height:auto;
+    margin:0 auto;
+    position:relative;
+}
+.nav-back-icon {
+    position: relative;
+    top: 7px;
+}
+
