@@ -48,4 +48,14 @@ section {
     position: relative;
     top: 7px;
 }
+.btn-icon {
+    position: relative;
+    top: 3px;
+}
+.align-right {
+    text-align:right;
+}
+.h-45 {
+    height: 45px !important;
+}
 

@@ -1,1 +1,212 @@
 <app-navbar></app-navbar>
+
+<ng-template #create let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Create something</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>...&hellip;</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>
+
+<ng-template #edit let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Edit something</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>...&hellip;</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>
+
+
+<div class="container pt-10">
+    <br>
+    <ngb-tabset>
+
+        <ngb-tab title="Accordion">
+            <ng-template ngbTabContent>
+                <br>
+                <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+                    <ngb-panel title="Panel">
+                        <ng-template ngbPanelContent>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                        aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                        labore sustainable VHS.
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel>
+                        <ng-template ngbPanelTitle>
+                        <span>Panel</span>
+                        </ng-template>
+                        <ng-template ngbPanelContent>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+                        aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+                        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                        labore sustainable VHS.
+                        </ng-template>
+                    </ngb-panel>
+                </ngb-accordion>
+            </ng-template>
+        </ngb-tab>
+
+        <ngb-tab title="Alerts">
+            <ng-template ngbTabContent>
+                <br>
+                <div class="alert alert-primary" role="alert">
+                This is a primary alert—check it out!
+                </div>
+                <div class="alert alert-secondary" role="alert">
+                This is a secondary alert—check it out!
+                </div>
+                <div class="alert alert-success" role="alert">
+                This is a success alert—check it out!
+                </div>
+                <div class="alert alert-danger" role="alert">
+                This is a danger alert—check it out!
+                </div>
+                <div class="alert alert-warning" role="alert">
+                This is a warning alert—check it out!
+                </div>
+                <div class="alert alert-info" role="alert">
+                This is a info alert—check it out!
+                </div>
+                <div class="alert alert-light" role="alert">
+                This is a light alert—check it out!
+                </div>
+                <div class="alert alert-dark" role="alert">
+                This is a dark alert—check it out!
+                </div>
+            </ng-template>
+        </ngb-tab>
+
+        <ngb-tab title="Tables">
+            <ng-template ngbTabContent>
+                <br>
+
+                <div class="row">
+
+                    <div class="col-lg-2">
+                        <select class="custom-select mr-sm-2 h-45" id="inlineFormCustomSelect">
+                            <option selected>Choose...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <form class="form-inline">
+                        <div class="form-group">
+                            <div class="input-group">
+                            <input class="form-control " placeholder="yyyy-mm-dd"
+                                    name="dp" ngbDatepicker #d="ngbDatepicker">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-dark" (click)="d.toggle()" type="button">
+                                <!-- <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/> -->
+                                <i class="material-icons btn-icon">date_range</i>
+                                </button>
+                            </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="input-group mb-3">
+                        <input type="text" class="form-control h-45" placeholder="Search..." aria-label="Search..." aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-dark" type="button">Submit</button>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="align-right">
+                            <button type="button" class="btn btn-outline-dark" (click)="open(create)">
+                                <i class="material-icons btn-icon">add</i>
+                            </button>
+                            <button type="button" class="btn btn-outline-dark" [swal]="['Are you sure?!', 'You are about to delete this. Is that ok?', 'warning']">
+                                <i class="material-icons btn-icon">delete</i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                        <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td align="right">
+                            <i class="material-icons" [swal]="['Are you sure?!', 'You are about to delete this. Is that ok?', 'warning']">delete</i>
+                            <i class="material-icons" (click)="open(edit)">edit</i>
+                            <i class="material-icons" (click)="showDetails()">search</i>
+                        </td>
+                        </tr>
+                        <tr>
+                        <th><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td align="right">
+                            <i class="material-icons" [swal]="['Are you sure?!', 'You are about to delete this. Is that ok?', 'warning']">delete</i>
+                            <i class="material-icons">edit</i>
+                            <i class="material-icons">search</i>
+                        </td>
+                        </tr>
+                        <tr>
+                        <th><input type="checkbox" aria-label="Checkbox for following text input"></th>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td align="right">
+                            <i class="material-icons" [swal]="['Are you sure?!', 'You are about to delete this. Is that ok?', 'warning']">delete</i>
+                            <i class="material-icons">edit</i>
+                            <i class="material-icons">search</i>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </ng-template>
+        </ngb-tab>
+
+
+    </ngb-tabset>
+
+</div>
